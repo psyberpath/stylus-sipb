@@ -1,0 +1,10 @@
+[package]
+name = "stylus-interfaces"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+alloy-primitives.workspace = true
+alloy-sol-types.workspace = true
+hex.workspace = true
+stylus-sdk.workspace = true

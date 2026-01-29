@@ -1,0 +1,14 @@
+[package]
+name = "stylus-bindgen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+alloy-json-abi.workspace = true
+alloy-primitives.workspace = true
+anyhow.workspace = true
+alloy-sol-type-parser.workspace = true
+clap = { workspace = true, features = ["derive"] }
+heck = "0.5.0"
+hex.workspace = true
+serde_json.workspace = true
