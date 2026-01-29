@@ -26,5 +26,4 @@ serde_json = "1.0"
 anyhow = "1.0"
 hex = "0.4"
 
-# Pin ruint for stylus-sdk 0.6.x compatibility
 ruint = "=1.12.3"
