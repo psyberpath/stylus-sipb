@@ -1,8 +1,7 @@
 [workspace]
 members = [
     "crates/stylus-interfaces",
-    "crates/stylus-bindgen",
-    "crates/sipb-preflight"
+    "crates/stylus-bindgen"
 ]
 resolver = "2"
 
@@ -14,7 +13,7 @@ license = "MIT"
 
 [workspace.dependencies]
 alloy-json-abi = "=0.7.6"
-alloy-primitives = { version = "=0.7.6", features = ["serde"] }
+alloy-primitives = { version = "=0.7.6", default-features = false, features = ["serde", "std", "tiny-keccak"] }
 alloy-sol-types = "=0.7.6"
 alloy-sol-type-parser = "=0.7.6"
 

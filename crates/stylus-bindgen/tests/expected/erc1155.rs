@@ -18,7 +18,7 @@ impl Contract {
     }
 
     // Original: balanceOfBatch(address[],uint256[])
-    pub fn balance_of_batch__0x4e1273f4(&self, accounts: Vec<u8>, ids: Vec<u8>) -> Result<Vec<u8>, Vec<u8>> {
+    pub fn balance_of_batch__0x4e1273f4(&self, accounts: Vec<Address>, ids: Vec<U256>) -> Result<Vec<u8>, Vec<u8>> {
         let input = hex::decode("4e1273f4").unwrap();
         // note: real encoding requires SolType definitions (Milestone 2)
         let result = unsafe { RawCall::new_static().call(self.address, &input)? };
@@ -34,7 +34,7 @@ impl Contract {
     }
 
     // Original: safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)
-    pub fn safe_batch_transfer_from__0x2eb2c2d6(&self, from: Address, to: Address, ids: Vec<u8>, values: Vec<u8>, data: Vec<u8>) -> Result<Vec<u8>, Vec<u8>> {
+    pub fn safe_batch_transfer_from__0x2eb2c2d6(&self, from: Address, to: Address, ids: Vec<U256>, values: Vec<U256>, data: Vec<u8>) -> Result<Vec<u8>, Vec<u8>> {
         let input = hex::decode("2eb2c2d6").unwrap();
         // note: real encoding requires SolType definitions (Milestone 2)
         let result = unsafe { RawCall::new_static().call(self.address, &input)? };

@@ -1,0 +1,17 @@
+# cargo-mutants config: https://mutants.rs/
+# Run: cargo mutants (or cargo mutants --in-place in CI)
+
+# Run full workspace tests for every mutant so changes in any crate are caught
+test_workspace = true
+
+# Mutate source in all workspace crates
+examine_globs = ["crates/*/src/**/*.rs"]
+
+# Don't mutate test files or generated output
+exclude_globs = []
+
+# Use cargo test (default)
+test_tool = "cargo"
+
+# Output directory for results (e.g. CI uploads this)
+output = "mutants.out"

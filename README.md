@@ -163,12 +163,33 @@ cargo build --workspace
 ### Test
 
 ```bash
-# Run golden output tests
+# Run full workspace tests (recommended)
+cargo test --workspace
+
+# If the first run seems stuck, the golden tests build the bindgen binary once (you'll see
+# "[golden_tests] Building stylus-bindgen binary (one-time)..."). To avoid that wait, run:
+cargo test-ready && cargo test --workspace
+
+# Run golden output tests only
 cargo test -p stylus-bindgen --test golden_tests
 
 # Build interface packs
 cargo build -p stylus-interfaces
 ```
+
+### Mutation testing (cargo-mutants)
+
+The project uses [cargo-mutants](https://mutants.rs/) to check that the test suite catches mutated code. CI runs it on pushes to `main` and on PRs that touch `crates/` or config.
+
+```bash
+# Install once (if not in CI)
+cargo install cargo-mutants
+
+# Run mutation tests (uses .cargo/mutants.toml)
+cargo mutants
+```
+
+Config: `.cargo/mutants.toml`. Results are written to `mutants.out` (CI uploads this as an artifact).
 
 ### Generate Interface from ABI
 
@@ -182,6 +203,9 @@ cargo run -p stylus-bindgen -- --input abis/erc721.json --output output.rs
 
 ```
 stylus-sipb/
+├── .cargo/
+│   ├── config.toml                # test-ready alias
+│   └── mutants.toml               # cargo-mutants config
 ├── abis/                          # ABI JSON fixtures
 │   ├── erc20.json
 │   ├── erc721.json                # Contains safeTransferFrom overloads

@@ -1,4 +1,6 @@
 /target/
+mutants.out/
+
 **/*.rs.bk
 
 .DS_Store
